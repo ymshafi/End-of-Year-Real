@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.Scanner;
 public class EndofYearProject {
 	
+	static boolean Applea = false;
 	public static void main (String args[]) throws IOException{
 		
 		
@@ -16,6 +17,8 @@ public class EndofYearProject {
 	
 	File apple = new File("Apple.txt");
 	Scanner applescan = new Scanner(apple);
+	String[] strArray = new String[8];
+	int j = 1;
 	int extra =	10;	
 	
 	
@@ -67,19 +70,36 @@ public class EndofYearProject {
 		System.out.print("2-User created level.");	
 		int response2 = input.nextInt();	
 			if(response2 == 1){
-				int hints = 6;
+				int hints = 3;
 				System.out.println("");	
 				System.out.println("Level 1:");
-					for(int x = 0; x < 3; x++){
-					String appleq = applescan.nextLine();
-					System.out.println(appleq);	
-						
+				while (Applea == false){
+				
+				while (applescan.hasNextLine()){
+						String line = applescan.nextLine();
+   						strArray[j] = line;
+   						j++;
 					}
-					
+					System.out.println(strArray[1]);
+					System.out.println(strArray[2]);
+					System.out.println(strArray[3]);
+					System.out.println("Type 'Use Hint' to Use 1 out of " +hints+ " hints.");
 					System.out.println("What am I?");
+					System.out.println(" ");
 					String answer = input.nextLine();
-						//need to compare line 11 to answer, dont know how
-					}	  
+					answer = input.nextLine();
+					System.out.println(" "); 
+					//use hints
+					if (answer.equals(strArray[7])){
+    		 			System.out.println("You got it!!");
+						boolean Applea = true; 
+					}
+    		 		else{
+    		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
+    		 		}	
+				}
+					
+			}	  
 			
 			
 			
