@@ -21,17 +21,38 @@ public class EndofYearProject {
 	
 	System.out.println("What do you want to do?");
 	System.out.println("1-Play the game.");  
-	System.out.print("2-Create an item.");
-	int response = input.nextInt();	
+	System.out.println("2-Create an item.");
+	int response = input.nextInt();		
 	if(response == 2){
 		System.out.println("Fist print what item you want to user to guess.");
 		String item = input.nextLine();
+		item = input.nextLine();
 		System.out.println("Your item is a " +item+ "." );
-		FileWriter usercreateditem = new FileWriter(item+".txt");
+		FileWriter fw = new FileWriter(item+".txt");
 		System.out.println("Now input the first hint.");
 		String hint = input.nextLine();
-		
-		usercreateditem.close();
+		fw.write(hint);
+		System.out.println("Now input the second hint.");
+		String hint2 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(hint2);
+		System.out.println("Now input the third hint.");
+		String hint3 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(hint3);
+		System.out.println("Now input the fourth hint.");
+		String hint4 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(hint4);
+		System.out.println("Now input the fifth hint.");
+		String hint5 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(hint5);
+		System.out.println("Now input the sixth hint.");
+		String hint6 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(hint5);
+		fw.close();
 		}
 		
 	if(response == 1){
