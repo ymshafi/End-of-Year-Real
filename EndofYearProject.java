@@ -51,7 +51,12 @@ public class EndofYearProject {
 		System.out.println("Now input the sixth hint.");
 		String hint6 = input.nextLine();
 		fw.write("\r\n");
-		fw.write(hint5);
+		fw.write(hint6);
+		String item2 = input.nextLine();
+		fw.write("\r\n");
+		fw.write(item);
+		System.out.println("You are now done!.");
+		
 		fw.close();
 		}
 		
