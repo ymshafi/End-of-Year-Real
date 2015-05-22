@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class EndofYearProject {
 	
 	static boolean Applea = false;
+	static boolean Watera = false;
 	public static void main (String args[]) throws IOException{
 		
 		
@@ -18,15 +19,15 @@ public class EndofYearProject {
 	File apple = new File("Apple.txt");
 	Scanner applescan = new Scanner(apple);
 	String[] strArray = new String[8];
-	int j = 1;
+	int j = 0;
 	int extra =	10;	
 	
 	
 	System.out.println("What do you want to do?");
 	System.out.println("1-Play the game.");  
 	System.out.println("2-Create an item.");
-	int response = input.nextInt();		
-	if(response == 2){
+	String response = input.nextLine();		
+	if(response.equals("2")){
 		System.out.println("Fist print what item you want to user to guess.");
 		String item = input.nextLine();
 		item = input.nextLine();
@@ -63,42 +64,65 @@ public class EndofYearProject {
 		fw.close();
 		}
 		
-	if(response == 1){
+	if(response.equals("1")){
 		System.out.println("");
 		System.out.println("Chose what you want to play:");
 		System.out.println("1-Stock three levels.");  
 		System.out.print("2-User created level.");	
-		int response2 = input.nextInt();	
-			if(response2 == 1){
+		String response2 = input.nextLine();	
+			if(response2.equals("1")){
 				int hints = 3;
 				System.out.println("");	
-				System.out.println("Level 1:");
-				while (Applea == false){
-				
+				System.out.println("Level 1:");				
+					
 				while (applescan.hasNextLine()){
-						String line = applescan.nextLine();
-   						strArray[j] = line;
-   						j++;
+					String line = applescan.nextLine();
+					strArray[j] = line;
+					j++;
+				}
+				int i = 3;
+				while (Applea == false){
+	    		 	int aa = 1;	
+	    		 	
+					if(hints == 3){
+						System.out.println(strArray[0]);
+						System.out.println(strArray[1]);
+						System.out.println(strArray[2]);						
 					}
-					System.out.println(strArray[1]);
-					System.out.println(strArray[2]);
-					System.out.println(strArray[3]);
+
 					System.out.println("Type 'Use Hint' to Use 1 out of " +hints+ " hints.");
 					System.out.println("What am I?");
 					System.out.println(" ");
 					String answer = input.nextLine();
-					answer = input.nextLine();
 					System.out.println(" "); 
 					//use hints
-					if (answer.equals(strArray[7])){
+					if (answer.equals(strArray[6])){
     		 			System.out.println("You got it!!");
-						boolean Applea = true; 
+						Applea = true; 
 					}
     		 		else{
     		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
-    		 		}	
-				}
+    		 		
+    		 		
+    		 		}
+    		 		
+    		 		if (answer.equals("Use Hint") && (hints > 0)){
+    		 			hints = hints - 1;
+						System.out.println(strArray[i]);
+						i++;
 					
+					}
+					else{
+							System.out.println("You are out of hints");
+					}
+				
+				}	
+			
+				while(Applea == true && Watera == false ){
+				System.out.println("watter m8y");
+				}
+			
+			
 			}	  
 			
 			
@@ -110,6 +134,7 @@ public class EndofYearProject {
 			  
 
 }
+
 }
 
 
