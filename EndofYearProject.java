@@ -11,6 +11,7 @@ public class EndofYearProject {
 	
 	static boolean Applea = false;
 	static boolean Watera = false;
+	static boolean Tshirta = false;
 	public static void main (String args[]) throws IOException{
 		
 		
@@ -112,16 +113,15 @@ public class EndofYearProject {
 						i++;
 					
 					}
-					else{
-							System.out.println("You are out of hints");
-					}
 				
 				}	
 			
 				while(Applea == true && Watera == false ){
-				System.out.println("watter m8y");
+				//water goes here
 				}
-			
+				while(Watera == true && Tshirta == true){
+				//Tshirt thing goes here 	
+				}
 			
 			}	  
 			
