@@ -16,7 +16,10 @@ public class EndofYearProject {
 		
 		
 	Scanner input = new Scanner (System.in);
-	
+	File Tshirt = new File("Music.txt");
+	Scanner shirtscan = new Scanner(Tshirt);
+	File water = new File("Water.txt");
+	Scanner waterscan = new Scanner(water);
 	File apple = new File("Apple.txt");
 	Scanner applescan = new Scanner(apple);
 	String[] strArray = new String[8];
@@ -115,26 +118,90 @@ public class EndofYearProject {
 					}
 				
 				}	
-			
+			    j = 0;
 				while(Applea == true && Watera == false ){
-				//water goes here
+					while (waterscan.hasNextLine()){
+					String line = waterscan.nextLine();
+					strArray[j] = line;
+					j++;
+				}
+				int k = 3;
+				while (Applea == true && Watera == false){
+	    		 	int aa = 1;	
+	    		 	
+					if(hints == 3){
+						System.out.println(strArray[0]);
+						System.out.println(strArray[1]);
+						System.out.println(strArray[2]);						
+					}
+
+					System.out.println("Type 'Use Hint' to Use 1 out of " +hints+ " hints.");
+					System.out.println("What am I?");
+					System.out.println(" ");
+					String answer = input.nextLine();
+					System.out.println(" "); 
+					//use hints
+					if (answer.equals(strArray[6])){
+    		 			System.out.println("You got it!!");
+						Watera = true; 
+					}
+    		 		else{
+    		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
+    		 		
+    		 		}
+    		 		}
+				}
+				while(Watera == true && Tshirta == false){
+			    j = 0;
+			    
+					while (shirtscan.hasNextLine()){
+					String line = shirtscan.nextLine();
+					strArray[j] = line;
+					j++;
+				}
+				int k = 3;
+				while (Watera == true && Tshirta == false){
+	    		 	int aa = 1;	
+	    		 	
+					if(hints == 3){
+						System.out.println(strArray[0]);
+						System.out.println(strArray[1]);
+						System.out.println(strArray[2]);						
+					}
+
+					System.out.println("Type 'Use Hint' to Use 1 out of " +hints+ " hints.");
+					System.out.println("What am I?");
+					System.out.println(" ");
+					String answer = input.nextLine();
+					System.out.println(" "); 
+					//use hints
+					if (answer.equals(strArray[6])){
+    		 			System.out.println("You got it!!");
+						Tshirta = true; 
+					}
+    		 		else{
+    		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
+    		 		
+    		 		
+    		 		}
 				}
 				while(Watera == true && Tshirta == true){
 				//Tshirt thing goes here 	
 				}
 			
+			}	
+				}
+			
+			
 			}	  
 			
 			
 			
-			
+			applescan.close();	
 			
 			}
-		applescan.close();	
+		
 			  
 
 }
-
-}
-
 
