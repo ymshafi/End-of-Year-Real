@@ -23,6 +23,8 @@ public class EndofYearProject {
 	File apple = new File("Apple.txt");
 	Scanner applescan = new Scanner(apple);
 	String[] strArray = new String[8];
+	File master = new File("master.txt");
+	Scanner masterscan = new Scanner(master);
 	int j = 0;
 	int extra =	10;	
 	
@@ -31,12 +33,17 @@ public class EndofYearProject {
 	System.out.println("1-Play the game.");  
 	System.out.println("2-Create an item.");
 	String response = input.nextLine();		
+	int c = 1;
 	if(response.equals("2")){
 		System.out.println("Fist print what item you want to user to guess.");
 		String item = input.nextLine();
-		item = input.nextLine();
 		System.out.println("Your item is a " +item+ "." );
 		FileWriter fw = new FileWriter(item+".txt");
+		File f = new File(item+".txt");
+		Scanner s = new Scanner(f);
+		FileWriter fw2 = new FileWriter("master.txt",true);
+		fw2.write(item);
+		fw2.write("\r\n");
 		System.out.println("Now input the first hint.");
 		String hint = input.nextLine();
 		fw.write(hint);
@@ -64,13 +71,19 @@ public class EndofYearProject {
 		fw.write("\r\n");
 		fw.write(item);
 		System.out.println("You are now done!.");
-		
+		fw2.close();
 		fw.close();
 		}
 		
+	if(response.equals("2")){
+		while(masterscan.hasNextLine()){
+			
+		}
+	}
+	
 	if(response.equals("1")){
 		System.out.println("");
-		System.out.println("Chose what you want to play:");
+		System.out.println("Choose what you want to play:");
 		System.out.println("1-Stock three levels.");  
 		System.out.print("2-User created level.");	
 		String response2 = input.nextLine();	
@@ -129,7 +142,7 @@ public class EndofYearProject {
 				while (Applea == true && Watera == false){
 	    		 	int aa = 1;	
 	    		 	
-					if(hints == 3){
+					if(Watera == false){
 						System.out.println(strArray[0]);
 						System.out.println(strArray[1]);
 						System.out.println(strArray[2]);						
@@ -149,6 +162,13 @@ public class EndofYearProject {
     		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
     		 		
     		 		}
+    		 		if (answer.equals("Use Hint") && (hints > 0)){
+    		 			hints = hints - 1;
+						System.out.println(strArray[i]);
+						i++;
+					
+					}
+    		 		
     		 		}
 				}
 				while(Watera == true && Tshirta == false){
@@ -163,7 +183,7 @@ public class EndofYearProject {
 				while (Watera == true && Tshirta == false){
 	    		 	int aa = 1;	
 	    		 	
-					if(hints == 3){
+					if(Tshirta ==false){
 						System.out.println(strArray[0]);
 						System.out.println(strArray[1]);
 						System.out.println(strArray[2]);						
@@ -181,13 +201,16 @@ public class EndofYearProject {
 					}
     		 		else{
     		 			System.out.println("Your answer is incorrect, be sure to check for caps!");
-    		 		
-    		 		
-    		 		}
+    		 			}
+    		 			
+    		 		if (answer.equals("Use Hint") && (hints > 0)){
+    		 			hints = hints - 1;
+						System.out.println(strArray[i]);
+						i++;
+					
+					}	
 				}
-				while(Watera == true && Tshirta == true){
-				//Tshirt thing goes here 	
-				}
+				
 			
 			}	
 				}
